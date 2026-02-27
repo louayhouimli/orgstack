@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: orgstack-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: orgstack
+      POSTGRES_USER: orgstack
+      POSTGRES_PASSWORD: orgstack_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - orgstack_pg_data:/var/lib/postgresql/data
+volumes:
+  orgstack_pg_data:
+      
